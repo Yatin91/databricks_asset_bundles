@@ -1,0 +1,27 @@
+resources:
+  jobs:
+    bakehouse_data_refresh:
+      name: bakehouse_data_refresh
+      trigger:
+        schedule:
+          quartz_cron_expression: "0 0 8 * * ?"
+          timezone_id: UTC
+      email_notifications:
+        on_failure:
+          - yatinjain91@outlook.com
+      parameters:
+        - name: catalog
+          default: ${var.catalog}
+        - name: schema
+          default: ${var.schema}
+      tasks:
+        - task_key: customer_360
+          notebook_task:
+            notebook_path: ../src/customer_360
+          job_cluster_key: job_cluster
+      job_clusters:
+        - job_cluster_key: job_cluster
+          new_cluster:
+            spark_version: 15.4.x-scala2.12
+            node_type_id: Standard_DS3_v2
+            num_workers: 1
