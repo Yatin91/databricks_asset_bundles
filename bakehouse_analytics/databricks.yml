@@ -1,0 +1,37 @@
+bundle:
+  name: bakehouse_analytics
+
+include:
+  - resources/*.yml
+
+variables:
+  catalog:
+    description: Target catalog name
+  schema:
+    description: Target schema name
+    default: rnd
+
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://dbc-0f08f33f-b08a.cloud.databricks.com
+    variables:
+      catalog: bakehouse_analytics_dev
+      schema: rnd
+    presets:
+      name_prefix: "dev_"
+
+  prod:
+    mode: production
+    workspace:
+      host: https://dbc-0f08f33f-b08a.cloud.databricks.com
+    variables:
+      catalog: bakehouse_analytics_prod
+      schema: rnd
+    presets:
+      name_prefix: "prod_"
+    permissions:
+      - level: CAN_MANAGE
+        user_name: yatinjain91@outlook.com
