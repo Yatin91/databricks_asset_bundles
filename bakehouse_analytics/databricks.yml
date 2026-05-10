@@ -21,7 +21,7 @@ targets:
       catalog: bakehouse_analytics_dev
       schema: rnd
     presets:
-      name_prefix: "dev_"
+      name_prefix: "${workspace.current_user.short_name}_"
 
   prod:
     mode: production
