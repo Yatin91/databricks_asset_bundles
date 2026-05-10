@@ -6,17 +6,19 @@ include:
 
 variables:
   catalog:
-    description: Target catalog name
+    description: Target catalog for deployment
   schema:
-    description: Target schema name
+    description: Target schema for deployment
     default: rnd
 
 targets:
+
   dev:
     mode: development
     default: true
     workspace:
       host: https://dbc-0f08f33f-b08a.cloud.databricks.com
+      root_path: /Workspace/Users/yatinjain91@outlook.com/.bundle/${bundle.name}/${bundle.target}
     variables:
       catalog: bakehouse_analytics_dev
       schema: rnd
@@ -27,6 +29,7 @@ targets:
     mode: production
     workspace:
       host: https://dbc-0f08f33f-b08a.cloud.databricks.com
+      root_path: /Workspace/Users/yatinjain91@outlook.com/.bundle/${bundle.name}/${bundle.target}
     variables:
       catalog: bakehouse_analytics_prod
       schema: rnd

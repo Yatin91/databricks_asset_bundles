@@ -11,6 +11,9 @@ resources:
         - task_key: franchisee_analytics
           notebook_task:
             notebook_path: ../src/franchisee_analytics/franchisee_analytics.ipynb
+            base_parameters:
+              catalog: "{{job.parameters.catalog}}"
+              schema: "{{job.parameters.schema}}"
           environment_key: default
       environments:
         - environment_key: default

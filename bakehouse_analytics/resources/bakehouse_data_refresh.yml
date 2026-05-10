@@ -2,7 +2,6 @@ resources:
   jobs:
     bakehouse_data_refresh:
       name: bakehouse_data_refresh
-      description: "Bakehouse Analytics - Customer 360 and Transaction Summary"
       parameters:
         - name: catalog
           default: ${var.catalog}
@@ -13,14 +12,12 @@ resources:
           notebook_task:
             notebook_path: ../src/customer_360.ipynb
           environment_key: default
-
         - task_key: transaction_summary
           depends_on:
             - task_key: customer_360
           notebook_task:
             notebook_path: ../src/transaction_summary.ipynb
           environment_key: default
-
       environments:
         - environment_key: default
           spec:
