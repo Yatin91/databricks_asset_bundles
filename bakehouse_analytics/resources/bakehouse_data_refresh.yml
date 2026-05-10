@@ -2,7 +2,10 @@ resources:
   jobs:
     bakehouse_data_refresh:
       name: bakehouse_data_refresh
+<<<<<<< Updated upstream
       description: "Bakehouse Analytics - Customer 360 and Transaction Summary"
+=======
+>>>>>>> Stashed changes
       parameters:
         - name: catalog
           default: ${var.catalog}
@@ -13,6 +16,7 @@ resources:
           notebook_task:
             notebook_path: ../src/customer_360.ipynb
           environment_key: default
+<<<<<<< Updated upstream
 
         - task_key: transaction_summary
           depends_on:
@@ -21,6 +25,8 @@ resources:
             notebook_path: ../src/transaction_summary.ipynb
           environment_key: default
 
+=======
+>>>>>>> Stashed changes
       environments:
         - environment_key: default
           spec:
