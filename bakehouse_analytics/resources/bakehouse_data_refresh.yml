@@ -2,6 +2,7 @@ resources:
   jobs:
     bakehouse_data_refresh:
       name: bakehouse_data_refresh
+      description: "Bakehouse Analytics - Customer 360 and Transaction Summary"
       parameters:
         - name: catalog
           default: ${var.catalog}
