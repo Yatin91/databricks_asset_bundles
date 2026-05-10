@@ -6,12 +6,13 @@ include:
 
 variables:
   catalog:
-    description: Target catalog name
+    description: Target catalog for deployment
   schema:
-    description: Target schema name
+    description: Target schema for deployment
     default: rnd
 
 targets:
+
   dev:
     mode: development
     default: true
